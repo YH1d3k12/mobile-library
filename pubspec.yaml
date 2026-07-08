@@ -1,0 +1,26 @@
+name: library_of_alexandria
+description: "Biblioteca de Alexandria - App de busca e favoritos de livros com estética macedônica."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  http: ^1.2.2
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
+  cached_network_image: ^3.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
