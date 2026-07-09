@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:library_of_alexandria/core/theme/app_colors.dart';
 import '../../../routes/app_routes.dart'; // Ajuste se necessário
 
 class CustomDrawer extends StatelessWidget {
@@ -12,6 +13,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: AppColors.marble,
       child: MediaQuery.removePadding(
         context: context,
         removeTop: true, // Remove espaçamentos fantasmas do topo
@@ -23,7 +25,7 @@ class CustomDrawer extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.only(top: 50, bottom: 20, left: 16, right: 16),
               decoration: const BoxDecoration(
-                color: Colors.blue, // Substitua pelo seu AppColors.primary se houver
+                color: AppColors.royalPurple,
               ),
               child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
