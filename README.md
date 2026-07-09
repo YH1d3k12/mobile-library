@@ -1,70 +1,74 @@
 ![Atividade](https://img.shields.io/badge/Atividade-Flutter-blue)
 ![Dart](https://img.shields.io/badge/Linguagem-Dart-00b4ab)
+![UI](https://img.shields.io/badge/UI-Material_Design_3-purple)
 
-# 📚 App de Busca e Organização de Livros
+# 📚 Biblioteca de Alexandria - App de Busca e Organização de Livros
 > Atividade Avaliativa em Flutter
 
-**Curso:** Análise e Desenvolvimento de Sistemas
-**Unidade Curricular:** Desenvolvimento de Dispositivos Mobile
+**Curso:** Análise e Desenvolvimento de Sistemas  
+**Unidade Curricular:** Desenvolvimento de Dispositivos Mobile  
 
-**Equipe de Desenvolvimento:**
+**Equipa de Desenvolvimento:**
 * 👩‍💻 [Cristhian Mazon](https://github.com/CristhianMazon)
 * 👨‍💻 [Djalma Hideki Yamamoto](https://github.com/YH1d3k12)
 * 👩‍💻 [Eloize Aiume](https://github.com/ATalDaAiume)
 
-Repositório criado para armazenar o projeto completo da atividade prática de criação de um aplicativo móvel para explorar o consumo de APIs, armazenamento local e navegação.
+Repositório criado para armazenar o projeto completo da atividade prática de criação de uma aplicação móvel para explorar o consumo de APIs, armazenamento local de dados, gestão de estado e navegação.
+
+---
 
 ## 📖 Sobre o Projeto
 
-Este aplicativo foi construído em Flutter com o objetivo de permitir que o utilizador pesquise livros por título, autor ou palavras-chave, visualize informações básicas e detalhadas, e salve os seus favoritos localmente para consulta posterior. O projeto garante uma experiência simples, organizada e funcional, com uma interface responsiva adequada para telas pequenas e médias.
+A **Biblioteca de Alexandria** foi construída em Flutter com o objetivo de permitir que o utilizador pesquise livros por título, autor ou palavras-chave através de uma API pública (Open Library). O utilizador pode visualizar informações básicas e detalhadas das obras e guardar os seus favoritos localmente para consulta posterior. 
 
-## 📸 Capturas de Ecrã (Screenshots)
+O projeto garante uma experiência simples, fluida e funcional, com uma identidade visual temática (dourado imperial, púrpura real e mármore) e uma interface responsiva, adequada para pequenos e médios ecrãs.
 
-Abaixo estão as demonstrações do aplicativo a funcionar em diferentes ecrãs *(substitua pelas imagens reais do seu app)*:
+## 📸 Capturas de Ecrã
 
-| 🔍 Ecrã de Busca | 📖 Detalhes do Livro | ⭐ Lista de Favoritos |
-| :---: | :---: | :---: |
-| <img src="https://via.placeholder.com/250x500.png?text=Tela+de+Busca" width="250"> | <img src="https://via.placeholder.com/250x500.png?text=Detalhes+do+Livro" width="250"> | <img src="https://via.placeholder.com/250x500.png?text=Favoritos" width="250"> |
+*(Nota: Substitua os links abaixo pelas imagens reais da sua aplicação)*
+
+| 🔍 Ecrã de Busca | 📖 Detalhes do Livro | ⭐ Favoritos | ⚙️ Configurações |
+| :---: | :---: | :---: | :---: |
+| <img src="https://via.placeholder.com/200x400.png?text=Pesquisa" width="200"> | <img src="https://via.placeholder.com/200x400.png?text=Detalhes" width="200"> | <img src="https://via.placeholder.com/200x400.png?text=Lista+Favoritos" width="200"> | <img src="https://via.placeholder.com/200x400.png?text=Dark+Mode" width="200"> |
 
 ## ✨ Principais Funcionalidades
 
-* **Consulta de Livros:** Integração com uma API pública (ex: Open Library) exibindo nome do livro, autor, capa e um resumo curto.
-* **Visão Detalhada:** Tela de detalhes do livro selecionado mostrando editora, ano ou idioma.
-* **Gestão de Favoritos:** Funcionalidade para favoritar, visualizar em tela dedicada e remover livros da lista localmente.
-* **Feedback de Estado:** Pesquisa com indicador de *loading*, mensagens de erro (falhas de rede ou ausência de dados) e aviso quando não há resultados.
-* **Fluxo de Navegação:** Navegação clara estruturada em: busca → detalhes → favoritos.
+* **Consulta de Livros:** Integração com a API pública *Open Library*, exibindo o nome do livro, autor, capa e um curto resumo.
+* **Visão Detalhada:** Ecrã dedicado para exibir os detalhes do livro selecionado (editora, ano de publicação, idioma, etc.).
+* **Gestão de Favoritos:** Funcionalidade para favoritar, remover e listar obras guardadas para acesso *offline*.
+* **Personalização de Tema:** Ecrã de configurações que permite ao utilizador alternar em tempo real entre o **Tema Claro** e o **Tema Escuro (Dark Mode)**.
+* **Feedback de Estado:** Interface reativa com indicadores de carregamento (*loading*), mensagens de erro adequadas (falhas de rede) e avisos de "nenhum resultado encontrado".
+* **Fluxo de Navegação:** Transições estruturadas de forma intuitiva: Busca → Detalhes → Favoritos → Configurações.
 
 ## 🧠 Escolhas Técnicas e Ferramentas
 
-Para atender aos requisitos do projeto, foram utilizadas as seguintes tecnologias:
+Para atender aos requisitos do projeto com o melhor desempenho possível, utilizámos as seguintes tecnologias:
 
-1. **Por que foi escolhido o `Flutter` com `Material Design 3`?**
-   Para a criação de uma interface limpa, intuitiva e responsiva, garantindo que a aplicação rode de forma estável em dispositivos Android, utilizando componentes visuais elaborados (como *cards* e ícones) com alto nível de reutilização de *widgets*.
+1. **Interface com `Flutter` e `Material Design 3`:**
+   Garante uma apresentação limpa, moderna e responsiva. A paleta de cores e a estilização dos componentes tiram partido máximo do MD3 para assegurar consistência visual.
+2. **Consumo de API com `http`:**
+   Responsável pelas requisições REST à API pública, permitindo desserializar os dados JSON e tratar exceções ou falhas de conectividade de forma segura.
+3. **Persistência Local com `sqflite` (SQLite):**
+   Em vez de soluções simples, optou-se por uma base de dados relacional robusta. O `sqflite` guarda os livros favoritados de forma eficiente, permitindo um carregamento instantâneo quando a aplicação é reaberta.
+4. **Gestão de Estado com `ValueNotifier`:**
+   Uma solução nativa e leve do Flutter para gerir alterações na interface gráfica (como a alternância imediata do Dark Mode) sem necessidade de instalar pacotes pesados de terceiros.
+5. **Otimização de Imagens com `cached_network_image`:**
+   Guarda as capas dos livros em cache no dispositivo, poupando o consumo de dados móveis e acelerando o carregamento visual nas próximas pesquisas.
 
-2. **Por que foi escolhido o pacote `HTTP`?**
-   Responsável pelas requisições à API pública de livros, permitindo receber e tratar adequadamente os dados da internet, além de lidar com os erros de rede e falhas de resposta.
+## 🤝 Organização do Trabalho em Equipa
 
-3. **Por que foi escolhido o `SharedPreferences` (ou `SQFlite`)?**
-   Para garantir a persistência dos dados entre as execuções do aplicativo. Ele permite que os livros favoritados sejam salvos de forma eficiente e acessados instantaneamente assim que o app é reaberto.
+Para assegurar uma boa colaboração e cumprir os critérios de avaliação, o projeto foi versionado no GitHub com base na criação de *Pull Requests*. As contribuições foram revistas em grupo antes de serem integradas na *branch* principal, divididas da seguinte forma:
 
-## 🤝 Organização do Trabalho em Equipe
-
-Para garantir a colaboração e atender aos critérios avaliativos, o projeto foi versionado no GitHub com base na criação de *Pull Requests*. As contribuições foram revisadas em grupo antes de integrar ao projeto principal e divididas da seguinte forma:
-* **Aluno 1:** Estrutura inicial do app e navegação.
-* **Aluno 2:** Integração com a API pública.
-* **Aluno 3:** Armazenamento local e favoritos.
-* **Aluno 4:** Interface visual, README e ajustes finais.
+*(Pode ajustar os nomes abaixo conforme a divisão real que fizeram)*
+* **Membro 1:** Estrutura inicial do projeto, navegação e integração com a API pública (HTTP).
+* **Membro 2:** Configuração do `sqflite`, lógica de armazenamento local (Favoritos) e modelos de dados.
+* **Membro 3:** Interface visual (UI/UX), implementação do Tema Claro/Escuro (`ValueNotifier`), gestão de exceções e documentação (README).
 
 ## 🚀 Como Executar o Projeto
 
-Siga os passos abaixo para rodar o aplicativo no seu ambiente local:
+Siga os passos abaixo para correr a aplicação no seu ambiente local:
 
-1. Certifique-se de que tem o **Flutter SDK** instalado.
-2. Clone este repositório.
-3. Acesse a pasta do projeto através do terminal.
-4. Execute o projeto usando o comando adequado no terminal, com um emulador Android ou dispositivo físico conectado.
-
-```bash
-flutter pub get
-flutter run
-```
+1. Certifique-se de que tem o **Flutter SDK** instalado na sua máquina.
+2. Clone este repositório:
+   ```bash
+   git clone [URL-DO-SEU-REPOSITORIO]
