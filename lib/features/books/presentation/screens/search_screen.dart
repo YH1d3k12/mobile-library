@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../shared/components/custom_drawer.dart';
 
 import '../../../../core/network/api_client.dart';
 import '../../../../core/services/service_locator.dart';
@@ -80,17 +81,14 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(
+      // --- ATUALIZADO: Removemos o botão antigo das actions ---
+      appBar: const MainAppBar(
         title: 'Biblioteca de Alexandria',
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.star_rounded),
-            tooltip: 'Favoritos',
-            onPressed: () =>
-                Navigator.of(context).pushNamed(AppRoutes.favorites),
-          ),
-        ],
       ),
+      
+      // --- ATUALIZADO: Menu hambúrguer integrado perfeitamente ---
+      drawer: const CustomDrawer(currentRoute: AppRoutes.search),
+      
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
