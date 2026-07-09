@@ -92,6 +92,8 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ],
       ),
+      // --- INSERÇÃO DO CUSTOM DRAWER ---
+      drawer: const CustomDrawer(currentRoute: AppRoutes.search),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
