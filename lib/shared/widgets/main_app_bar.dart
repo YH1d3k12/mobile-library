@@ -26,7 +26,17 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         title: Text(title),
         actions: actions,
-        automaticallyImplyLeading: showBackButton,
+        // Sempre true: deixa o Flutter decidir o leading automaticamente.
+        // Se `leading` abaixo for null, o Flutter mostra o ícone do Drawer
+        // (quando o Scaffold tiver `drawer`) ou nada (quando não tiver e
+        // não houver rota anterior).
+        automaticallyImplyLeading: true,
+        leading: showBackButton
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            : null,
       ),
     );
   }
