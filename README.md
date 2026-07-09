@@ -29,7 +29,7 @@ O projeto garante uma experiência simples, fluida e funcional, com uma identida
 
 | 🔍 Ecrã de Busca | 📖 Detalhes do Livro | ⭐ Favoritos | ⚙️ Configurações |
 | :---: | :---: | :---: | :---: |
-| <img src="https://via.placeholder.com/200x400.png?text=Pesquisa" width="200"> | <img src="https://via.placeholder.com/200x400.png?text=Detalhes" width="200"> | <img src="https://via.placeholder.com/200x400.png?text=Lista+Favoritos" width="200"> | <img src="https://via.placeholder.com/200x400.png?text=Dark+Mode" width="200"> |
+| <img src="https://i.postimg.cc/KvDYqX7t/Home-Alexandria.png" width="200"> | <img src="https://i.postimg.cc/HsdY7ZG9/Detalhes-do-Livro-Alexandria.png" width="200"> | <img src="https://i.postimg.cc/fLdzY1T0/Favoritos-Alexandria.png" width="200"> | <img src="https://via.placeholder.com/200x400.png?text=Dark+Mode" width="200"> |
 
 ## ✨ Principais Funcionalidades
 
