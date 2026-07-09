@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../routes/app_routes.dart'; // Ajuste o caminho se necessário conforme o arquivo original
+import '../../../routes/app_routes.dart'; // Ajuste se necessário
 
 class CustomDrawer extends StatelessWidget {
   final String currentRoute;
@@ -12,75 +12,80 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
-        children: [
-          // Cabeçalho do Menu
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue, // Aqui vocês podem usar AppColors.primary depois
-            ),
-            child: SizedBox(
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true, // Remove espaçamentos fantasmas do topo
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            // Cabeçalho Customizado e Seguro
+            Container(
               width: double.infinity,
-              child: Column(
+              padding: const EdgeInsets.only(top: 50, bottom: 20, left: 16, right: 16),
+              decoration: const BoxDecoration(
+                color: Colors.blue, // Substitua pelo seu AppColors.primary se houver
+              ),
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.menu_book, color: Colors.white, size: 40),
-                  SizedBox(height: 10),
+                  Icon(Icons.menu_book, color: Colors.white, size: 36),
+                  SizedBox(height: 8),
                   Text(
                     'Alexandria',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-          
-          // 1. Menu Inicial (Busca)
-          ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Menu Inicial'),
-            selected: currentRoute == AppRoutes.search, // Destaca se estiver na tela
-            onTap: () {
-              Navigator.pop(context); // Fecha o Drawer
-              if (currentRoute != AppRoutes.search) {
-                Navigator.pushReplacementNamed(context, AppRoutes.search);
-              }
-            },
-          ),
-          
-          // 2. Favoritos
-          ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text('Favoritos'),
-            selected: currentRoute == AppRoutes.favorites,
-            onTap: () {
-              Navigator.pop(context);
-              if (currentRoute != AppRoutes.favorites) {
-                // Se não houver pushReplacement configurado nas rotas, use pushNamed
-                Navigator.pushNamed(context, AppRoutes.favorites);
-              }
-            },
-          ),
-          
-          // 3. Configurações (Configs)
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Configurações'),
-            selected: currentRoute == '/settings', // Caso criem uma rota futura de configs
-            onTap: () {
-              Navigator.pop(context);
-              // TODO: Implementar rota de configurações se necessário, ou exibir um Dialog por enquanto
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Tela de Configurações em desenvolvimento!')),
-              );
-            },
-          ),
-        ],
+            
+            // 1. Menu Inicial (Busca)
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Menu Inicial'),
+              selected: currentRoute == AppRoutes.search,
+              onTap: () {
+                Navigator.pop(context);
+                if (currentRoute != AppRoutes.search) {
+                  Navigator.pushReplacementNamed(context, AppRoutes.search);
+                }
+              },
+            ),
+            
+            // 2. Favoritos
+            ListTile(
+              leading: const Icon(Icons.favorite),
+              title: const Text('Favoritos'),
+              selected: currentRoute == AppRoutes.favorites,
+              onTap: () {
+                Navigator.pop(context);
+                if (currentRoute != AppRoutes.favorites) {
+                  Navigator.pushNamed(context, AppRoutes.favorites);
+                }
+              },
+            ),
+            
+            // 3. Configurações
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Configurações'),
+              selected: currentRoute == '/settings',
+              onTap: () {
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Configurações em desenvolvimento!'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
